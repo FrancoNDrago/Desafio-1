@@ -1,54 +1,55 @@
 class ProductManager {
-    static id = 1;
-    static products;
+  static id = 1;
+  static products;
+  constructor(title, description, price, thumbnail, code, stock) {
+    ProductManager.id +=0;
+    this.products = [];
+    this.title=title;
+    this.description=description;
+    this.price=price;
+    this.thumbnail=thumbnail;
+    this.code=code;
+    this.stock=stock;
+  }
 
-    constructor(title, description, price, thumbnail, code, stock) {
-      ProductManager.id +=0;
-      this.products = [];
-      this.title=title;
-      this.description=description;
-      this.price=price;
-      this.thumbnail=thumbnail;
-      this.code=code;
-      this.stock=stock;
-    }
-
-    addProduct(product) {
-      product = { ...product, id: ProductManager.id };
-      let assignedCode = this.products.find(
-        (product) => product.code === this.code
-      );
-      if (assignedCode) {
-        return console.log(
-        "El codigo del producto", 
+  addProduct(product) {
+    product === { ...product, id: ProductManager.id };
+    let assignedCode = this.products.find(
+      (product) => {
+        return product.code === this.code;
+      }
+    );
+    if (assignedCode) {
+      return console.log(
+       "El codigo del producto", 
         product.title, 
-        "tiene que ser distinto al de los demas productos"
-        );
-      } else {
-        this.products.push(product);
-        ProductManager.id++;
-      }
-    }
-
-    getProducts() {
-      return this.products;
-    }
-
-    getProductById(id) {
-      let searchID = id;
-      let myProduct = null;
-      this.products.forEach((product) => {
-        if (product.id === searchID) {
-          myProduct = product;
-        }
-      });
-      if (myProduct === null) {
-        return console.log("Este id", searchID, "no fue encontrado");
-      } else {
-        return console.log("Este id", searchID, "pertenece al producto ", myProduct.title);
-      }
+       "tiene que ser distinto al de los demas productos"
+      );
+    } else {
+      this.products.push(product);
+      ProductManager.id++;
     }
   }
+
+  getProducts() {
+    return this.products;
+  }
+
+  getProductById(id) {
+    let searchID = id;
+    let myProduct = null;
+    this.products.forEach((product) => {
+      if (product.id === searchID) {
+        myProduct = product;
+      }
+    });
+    if (myProduct === null) {
+      return console.log("Este id", searchID, "no fue encontrado");
+    } else {
+      return console.log("Este id", searchID, "pertenece al producto ", myProduct.title);
+    }
+  }
+}
 
 const productList = new ProductManager();
 
