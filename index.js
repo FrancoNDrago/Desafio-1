@@ -26,11 +26,18 @@ class ProductManager {
       }
     );
     if (assignedCode) {
-      return console.log(
-       `El codigo del producto, 
-        ${product.code} 
-       tiene que ser distinto al de los demas productos`
-      );
+      product.title = null
+      return console.log("falta el campo titulo en el producto");
+      product.description = null
+      return console.log("falta el campo description en el producto");
+      product.price = null
+      return console.log("falta el campo price en el producto");
+      product.thumbnail = null
+      return console.log("falta el campo thumbnail en el producto");
+      product.code = null
+      return console.log("falta el campo code en el producto");
+      product.stock = null
+      return console.log("falta el campo stock en el producto");
     } else product.id
       this.getProducts().length + 1;this.products.push(product);
       ProductManager.id++;
