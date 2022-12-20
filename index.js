@@ -25,19 +25,9 @@ class ProductManager {
         return product.stock === this.stock;
       }
     );
-    if (assignedCode) {
-      product.title = null
-      return console.log("falta el campo titulo en el producto");
-      product.description = null
-      return console.log("falta el campo description en el producto");
-      product.price = null
-      return console.log("falta el campo price en el producto");
-      product.thumbnail = null
-      return console.log("falta el campo thumbnail en el producto");
-      product.code = null
-      return console.log("falta el campo code en el producto");
-      product.stock = null
-      return console.log("falta el campo stock en el producto");
+    if (!product.title || !product.description || !product.price ||
+    !product.thumbnail || !product.code || !product.stock) {
+    throw new Error('Todos los campos son obligatorios');
     } else product.id
       this.getProducts().length + 1;this.products.push(product);
       ProductManager.id++;
